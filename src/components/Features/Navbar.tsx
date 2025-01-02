@@ -17,14 +17,14 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
     const pathname = usePathname();
   return (
-    <div className="p-3 w-full h-fit flex justify-between font-mono">
+    <div className="p-3 w-full h-fit flex justify-between font-mono bg-gradient-to-r from-gray-900 via-gray-950 to-slate-900">
       <div className="text-2xl font-extrabold text-white">The Eighteen Project</div>
       <div>
         <Sheet>
           <SheetTrigger>
-            <Image src={"/globe.svg"} alt="navigation" height={34} width={34} className="invert"/>
+            <Image src={"/globe.svg"} alt="navigation" height={28} width={28} className="invert"/>
           </SheetTrigger>
-          <SheetContent className="text-white bg-black">
+          <SheetContent className="text-white bg-gradient-to-r from-gray-900 via-gray-950 to-slate-900">
             <SheetHeader className="border-b mb-4 py-3">
               <SheetTitle className="text-2xl font-extrabold text-white">The Eighteen Project</SheetTitle>
               <SheetDescription>
