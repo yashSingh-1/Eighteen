@@ -1,20 +1,20 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, PiIcon } from "lucide-react";
 import Image from "next/image";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
+import Link from "next/link";
 
-const Card = ({ image, title }: { image: string; title: string }) => {
+const Card = ({ image, title, slug }: { image: string; title: string, slug: string }) => {
   return (
-    <div>
-      <div className="mx-3 md:mx-5 my-2 md:my-5 bg-gradient-to-r from-gray-950 via-teal-950 to-slate-950  rounded-lg overflow-hidden shadow-lg ">
+    <div className="font-mono">
+      <div className="mx-3 md:mx-5 my-5 py-1 bg-gradient-to-r from-gray-950 via-teal-950 to-slate-950  rounded-lg overflow-hidden shadow-lg ">
         <div className="relative h-48 overflow-hidden">
           <Image
             src={image}
@@ -24,28 +24,31 @@ const Card = ({ image, title }: { image: string; title: string }) => {
             className="animate-pulse-color p-1 rounded-lg"
           />
         </div>
-        <div className="p-6">
+        <div className="px-6 pt-6 pb-1">
           <h2 className="text-2xl font-bold mb-2">{title}</h2>
-          <p className="text-gray-400 mb-4">
+          <p className="text-gray-400 mb-1">
             Stay updated with the latest breakthroughs and developments in{" "}
             {title}.
           </p>
-          <div
-            className="inline-flex items-center text-blue-400 hover:text-blue-300"
-          >
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <NavigationMenuLink>Link</NavigationMenuLink>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
         </div>
+        <div className="inline-flex items-center text-black hover:text-blue-900 mx-6">
+        <Menubar>
+          <MenubarMenu>
+            <MenubarTrigger>Read more!</MenubarTrigger>
+            <MenubarContent>
+              <MenubarItem>
+                <Link href={"/" + slug}>
+                Open in Viewing mode
+                </Link>
+              </MenubarItem>
+              <MenubarSeparator />
+              <MenubarItem>Share</MenubarItem>
+            </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
       </div>
+      </div>
+      
     </div>
   );
 };
