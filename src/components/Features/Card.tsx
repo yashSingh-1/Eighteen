@@ -37,7 +37,7 @@ const Card = ({ image, title, slug }: { image: string; title: string, slug: stri
             <MenubarTrigger>Read more!</MenubarTrigger>
             <MenubarContent>
               <MenubarItem>
-                <Link href={"/" + slug}>
+                <Link href={"/browse/" + slug}>
                 Open in Viewing mode
                 </Link>
               </MenubarItem>
